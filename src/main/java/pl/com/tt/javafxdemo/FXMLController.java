@@ -8,10 +8,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import pl.com.tt.arithmetic.parser.Parser;
 
 public class FXMLController implements Initializable {
-	
+
     @FXML
     private TextArea polex;
     @FXML
@@ -66,112 +68,137 @@ public class FXMLController implements Initializable {
     private Button button_potega;
     @FXML
     private Button button_pomnozyc;
-    
-    
-    
-   
-    
+
+
     @FXML
     private void buttonaction1(ActionEvent event) {
-    	pole.setText(pole.getText()+"1");
+        pole.setText(pole.getText() + "1");
     }
+
     @FXML
     private void buttonaction2(ActionEvent event) {
-    	pole.setText(pole.getText()+"2");
+        pole.setText(pole.getText() + "2");
     }
+
     @FXML
     private void buttonaction3(ActionEvent event) {
-    	pole.setText(pole.getText()+"3");
+        pole.setText(pole.getText() + "3");
     }
+
     @FXML
     private void buttonaction4(ActionEvent event) {
-    	pole.setText(pole.getText()+"4");
+        pole.setText(pole.getText() + "4");
     }
+
     @FXML
     private void buttonaction5(ActionEvent event) {
-    	pole.setText(pole.getText()+"5");
+        pole.setText(pole.getText() + "5");
     }
+
     @FXML
     private void buttonaction6(ActionEvent event) {
-    	pole.setText(pole.getText()+"6");
+        pole.setText(pole.getText() + "6");
     }
+
     @FXML
     private void buttonaction7(ActionEvent event) {
-    	pole.setText(pole.getText()+"7");
+        pole.setText(pole.getText() + "7");
     }
+
     @FXML
     private void buttonaction8(ActionEvent event) {
-    	pole.setText(pole.getText()+"8");
+        pole.setText(pole.getText() + "8");
     }
+
     @FXML
     private void buttonaction9(ActionEvent event) {
-    	pole.setText(pole.getText()+"9");
+        pole.setText(pole.getText() + "9");
     }
+
     @FXML
     private void buttonaction0(ActionEvent event) {
-    	pole.setText(pole.getText()+"0");
+        pole.setText(pole.getText() + "0");
     }
+
     @FXML
     private void buttonaction_sin(ActionEvent event) {
-    	pole.setText(pole.getText()+"sin(");
+        pole.setText(pole.getText() + "sin(");
     }
+
     @FXML
     private void buttonaction_cos(ActionEvent event) {
-    	pole.setText(pole.getText()+"cos(");
+        pole.setText(pole.getText() + "cos(");
     }
+
     @FXML
     private void buttonaction_tg(ActionEvent event) {
-    	pole.setText(pole.getText()+"tg(");
+        pole.setText(pole.getText() + "tg(");
     }
+
     @FXML
     private void buttonaction_ctg(ActionEvent event) {
-    	pole.setText(pole.getText()+"ctg(");
+        pole.setText(pole.getText() + "ctg(");
     }
+
     @FXML
     private void buttonaction_abs(ActionEvent event) {
-    	pole.setText(pole.getText()+"abs(");
+        pole.setText(pole.getText() + "abs(");
     }
+
     @FXML
     private void buttonaction_sqrt(ActionEvent event) {
-    	pole.setText(pole.getText()+"sqrt(");
+        pole.setText(pole.getText() + "sqrt(");
     }
+
     @FXML
     private void buttonaction_otworznawias(ActionEvent event) {
-    	pole.setText(pole.getText()+"(");
+        pole.setText(pole.getText() + "(");
     }
+
     @FXML
     private void buttonaction_zamknijnawias(ActionEvent event) {
-    	pole.setText(pole.getText()+")");
+        pole.setText(pole.getText() + ")");
     }
+
     @FXML
     private void buttonaction_plus(ActionEvent event) {
-    	pole.setText(pole.getText()+"+");
+        pole.setText(pole.getText() + "+");
     }
+
     @FXML
     private void buttonaction_minus(ActionEvent event) {
-    	pole.setText(pole.getText()+"-");
+        pole.setText(pole.getText() + "-");
     }
+
     @FXML
     private void buttonaction_pomnozyc(ActionEvent event) {
-    	pole.setText(pole.getText()+"*");
+        pole.setText(pole.getText() + "*");
     }
+
     @FXML
     private void buttonaction_podzielic(ActionEvent event) {
-    	pole.setText(pole.getText()+"/");
+        pole.setText(pole.getText() + "/");
     }
+
     @FXML
     private void buttonaction_potega(ActionEvent event) {
-    	pole.setText(pole.getText()+"^");
+        pole.setText(pole.getText() + "^");
     }
+
     @FXML
     private void buttonaction_rownasie(ActionEvent event) {
-    	Parser p1 = new Parser();
-    	String string = p1.parse(pole.getText().replace("x", polex.getText())).calculate().toString();
-    	pole.setText(pole.getText().replace("x", polex.getText())+"="+string);
+        Parser p1 = new Parser();
+        String string =
+                p1.parse(pole.getText().replace("x", (Double.valueOf(polex.getText())) >= 0 ? "*" + polex.getText() :
+                        "*(" + polex.getText() + ")")).calculate().toString();
+        pole.setText(pole.getText().replace("x", (Double.valueOf(polex.getText())) >= 0 ? "*" + polex.getText() :
+                "*(" + polex.getText() + ")") + "=" + string);
+
     }
-    
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 }
